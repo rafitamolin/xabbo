@@ -26,11 +26,13 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
       
-    - name: Zip Build
-      run: 7z a build.zip ./bin/*
+    - name: Zip Build/Windows_64bit
+      run: |
+        cd ${{ github.workspace }}/bin/
+        zip -r ../../build-win64.zip *
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: build-zip
-        path: build.zip
+        name: build-win64-zip
+        path: build-win64.zip
