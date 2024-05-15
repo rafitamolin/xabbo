@@ -28,8 +28,8 @@ jobs:
       
     - name: Zip Build/Windows_64bit
       run: |
-        cd ${{ github.workspace }}/bin/
-        zip -r ../../build-win64.zip *
+        cd ${{ github.workspace }}\bin\
+        zip -r ..\..\build-win64.zip *
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
